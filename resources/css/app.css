@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bgImg{
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image:url('../../public/img/wave-1.svg'),url('../../public/img/wave-2.svg'),url('../../public/img/wave.svg');
+}
+
+.cusBtn{
+    @apply py-2 px-10 bg-primary tracking-wide uppercase
+}
