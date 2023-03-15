@@ -30,13 +30,17 @@
 
 @if(session('status'))
     <script>
-        @if(is_array(session('status')))
-            const data = @json(session('status'))
-            showToast(data.message,data.icon)
-        @else
-            showToast("{{ session('status') }}")
-        @endif
+        window.addEventListener("load",function(){
+
+            @if(is_array(session('status')))
+                const data = @json(session('status'));
+                showToast(data.message,data.icon)
+            @else
+                showToast("{{ session('status') }}")
+            @endif
+        })
     </script>
+    
 @endif
 </body>
 </html>
