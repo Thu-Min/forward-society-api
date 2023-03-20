@@ -17,3 +17,17 @@ window.showToast = function (title = "Successful", icon = "success") {
         title,
     });
 };
+
+window.cp = function (selectorId){
+
+    let current = document.getElementById(selectorId);
+
+    /* Select the text field */
+    current.select();
+    current.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(current.value);
+
+    showToast("Copied the URL. Past anywhere to use it back","info")
+}

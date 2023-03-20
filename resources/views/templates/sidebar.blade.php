@@ -11,12 +11,12 @@
         <x-sidebar-menu-title>
           Navigation
         </x-sidebar-menu-title>
-        
+
         <x-sidebar-link :url="route('dashboard')">
           <i class="fa-solid fa-fw fa-house"></i>
           Dashboard
         </x-sidebar-link>
-        
+
         <x-sidebar-link :url="route('table')">
           <i class="fa-solid fa-fw fa-table-list"></i>
           Table
@@ -26,6 +26,11 @@
           <i class="fa-solid fa-fw fa-file"></i>
           Form
         </x-sidebar-link>
+
+        <x-sidebar-link :url="route('photo.create')">
+            <i class="fa-solid fa-images"></i>
+            Photo
+          </x-sidebar-link>
 
     </ul>
 

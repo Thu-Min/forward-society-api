@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\ProfileController;
 
 Route::view('/', 'auth.login');
 
@@ -9,6 +10,7 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::view('/', 'dashboard')->name('dashboard');
     Route::view('/table', 'table')->name('table');
     Route::view('/user', 'form')->name('form');
+    Route::resource('/photo', PhotoController::class);
 });
 
 Route::middleware('auth')->group(function () {
