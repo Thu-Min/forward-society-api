@@ -13,15 +13,24 @@
 </div>
 
 <x-card>
-    <x-card-header title="Photo">
-        <form action="{{ route('photo.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="file" name="name" class="file-input file-input-bordered file-input-primary w-full max-w-xs" />
-            <button type="submit" class="btn btn-primary btn-md flex-none">Submit</button>
-        </form>
+    <x-card-header title="Photo Upload">
+
     </x-card-header>
 </x-card>
 
+<div class="ml-5">
+    <form action="{{ route('photo.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="name" class="file-input file-input-bordered file-input-primary w-[91%]" required/>
+        <button type="submit" class="btn btn-primary btn-md flex-none text-white">Upload</button>
+    </form>
+</div>
+
+<x-card>
+    <x-card-header title="Photo">
+
+    </x-card-header>
+</x-card>
 
 <div class="grid grid-cols-4 place-items-center">
     @forelse($photos as $photo)
@@ -40,29 +49,32 @@
                         </button>
                     </div>
                 </form>
-                <label for="my-modal-3" class="btn btn-primary">
-                    <i class="fa-solid fa-circle-info text-white"></i>
+                <label for="my-modal-{{ $photo->id }}" class="btn btn-primary text-white">
+                        <i class="fa-solid fa-circle-info"></i>
                 </label>
             </div>
 
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+            <input type="checkbox" id="my-modal-{{ $photo->id }}" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box relative">
                     <div class="flex flex-row-reverse items-center justify-between">
-                        <label for="my-modal-3" class="btn btn-sm btn-circle btn-primary text-white">✕</label>
+                        <label for="my-modal-{{ $photo->id }}" class="btn btn-sm btn-circle btn-primary text-white">✕</label>
                         <h3 class="font-bold text-lg">Photo Detail</h3>
                     </div>
                     <div class="mb-3 w-12/12 form-control">
-                        <label class="label">
-                            <span class="label-text">
+                        <div>
+                            <img src="{{ $photo->md }}" class="rounded my-5" alt="">
+                        </div>
+                        <div class="mb-3">
+                            <label class="label">
                                 Thumbnail Image
-                            </span>
-                        </label>
-                        <div class="input-group">
-                            <input type="text" class="w-full" id="previewUrlThumbnail" value="{{ $photo->thumbnail }}" readonly>
-                            <button class="btn btn-secondary" onclick="cp('previewUrlThumbnail')">
-                                <i class="fa-solid fa-clipboard"></i>
-                            </button>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" class="w-full" id="previewUrlThumbnail" value="{{ $photo->thumbnail }}" readonly>
+                                <button class="btn btn-secondary" onclick="cp('previewUrlThumbnail')">
+                                    <i class="fa-solid fa-clipboard"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Medium Image</label>
@@ -95,3 +107,20 @@
     <div class="">{{ $photos->links('pagination::tailwind') }}</div>
 </div>
 @endsection
+
+@push('scripts')
+
+{{-- <script>
+    let modalPreviewImg = document.getElementById('modalPreviewImg');
+    let previewModal = document.getElementById('previewModal');
+    let modal = document.querySelector('modal');
+
+    function showPreview(sm,md,lg){
+        modalPreviewImg.src = md;
+        console.log('hi');
+        previewModal.show();
+    }
+</script> --}}
+
+
+@endpush

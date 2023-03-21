@@ -21,7 +21,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::latest("id")->paginate(12);
+        $photos = Photo::latest("id")->paginate(8);
         return PhotoResource::collection($photos);
     }
 
@@ -31,7 +31,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        $photos = Photo::latest("id")->paginate(12)->through(function($photo){
+        $photos = Photo::latest("id")->paginate(8)->through(function($photo){
             $photo->thumbnail = asset('storage/thumbnail_'.$photo->name);
             $photo->md = asset('storage/md_'.$photo->name);
             $photo->lg = asset('storage/lg_'.$photo->name);
