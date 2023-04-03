@@ -21,7 +21,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::latest("id")->paginate(8);
+        $photos = Photo::latest("id")->paginate(4);
+
         return PhotoResource::collection($photos);
     }
 
@@ -31,7 +32,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        $photos = Photo::latest("id")->paginate(8)->through(function($photo){
+        $photos = Photo::latest("id")->paginate(4)->through(function($photo){
+
             $photo->thumbnail = asset('storage/thumbnail_'.$photo->name);
             $photo->md = asset('storage/md_'.$photo->name);
             $photo->lg = asset('storage/lg_'.$photo->name);
@@ -49,8 +51,6 @@ class PhotoController extends Controller
      */
     public function store(\Illuminate\Http\Request $request)
     {
-        // dd($request->all());
-
         $newName = uniqid()."_"."photo.".$request->name->extension();
 
         $thumbnail = Image::make($request->name)->fit(300,300);
@@ -109,6 +109,7 @@ class PhotoController extends Controller
         Storage::delete('public/thumbnail_'.$photo->name);
         Storage::delete('public/md_'.$photo->name);
         Storage::delete('public/lg_'.$photo->name);
+
         $photo->delete();
 
         return redirect()->route('photo.create')->with('status', 'Photo delete Successfully');

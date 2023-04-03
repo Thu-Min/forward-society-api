@@ -17,8 +17,9 @@ class PhotoResource extends JsonResource
     public function toArray(Request $request): array
     {
         return parent::toArray($request);
+
         return [
-            'name' => $request->name,
+            'name' => $this->name,
             'thumbnail' => asset('storage/thumbnail_'.$this->name),
             'md' => asset('storage/md_'.$this->name),
             'lg' => asset('storage/lg_'.$this->name),
