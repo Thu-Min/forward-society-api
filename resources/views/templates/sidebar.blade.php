@@ -27,10 +27,28 @@
           Form
         </x-sidebar-link>
 
+        <x-sidebar-menu-title>
+            Gallery
+        </x-sidebar-menu-title>
+
         <x-sidebar-link :url="route('photo.create')">
             <i class="fa-solid fa-images"></i>
             Photo
-          </x-sidebar-link>
+        </x-sidebar-link>
+
+        <x-sidebar-menu-title>
+            Testimonial
+        </x-sidebar-menu-title>
+
+        <x-sidebar-link :url="route('testimonial.index')">
+            <i class="fa-regular fa-fw fa-comment-dots"></i>
+            Testimonial List
+        </x-sidebar-link>
+
+        <x-sidebar-link :url="route('testimonial.create')">
+            <i class="fa-solid fa-fw fa-file"></i>
+            Create Testimonial
+        </x-sidebar-link>
 
           <x-sidebar-menu-title>
             Blog Management

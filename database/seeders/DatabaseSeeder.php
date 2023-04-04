@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,10 +27,15 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin123')
         ]);
+
         
         $this->call([
             BlogSeeder::class,
             CategorySeeder::class,
         ]);
+
+
+        Testimonial::factory(100)->create();
+
     }
 }
