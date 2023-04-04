@@ -4,7 +4,7 @@
     Category
 @endsection
 
-@section('content')        
+@section('content')
     {{-- breadcrumb --}}
     <div class="text-sm breadcrumbs ml-5 pt-5  text-primary">
         <ul>
@@ -15,30 +15,25 @@
     </div>
     <x-card>
         <x-card-header title="Category">
-            
+
         </x-card-header>
-            <div class="ml-5">
-                <form action="{{route('category.update',$category->id) }}" method="post">
+        <div class="ml-5">
+            <form action="{{ route('category.update', $category->id) }}" method="post">
                 @csrf
-                @method("put")
+                @method('put')
                 <label class="label font-bold text-xl" for="categories"> Edit Category </label>
-                    <div class="input-group w-full max-w-3xl mt-3">
-                        <input type="text" class="input input-bordered input-md w-full max-w-3xl mb-1" name="title" value="{{ old('title', $category->title) }}">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa-solid fa-arrow-up-from-bracket mr-3"></i> Update
-                        </button>
-                    </div>
-                    @error('title')
-                    <div class="alert alert-warning shadow-lg">
-                        <div>
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                          <span>{{$message}}</span>
-                        </div>
-                    </div>
-                     @enderror
-                </form>
-                @include('category.list')
-            </div>
+
+                <input type="text" class="input input-bordered w-[89%]" name="title"
+                    value="{{ old('title', $category->title) }}">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-up-from-bracket mr-3"></i> Update
+                </button>
+
+                @error('title')
+                    <div class="text-red-500">{{ $message }}</div>
+                @enderror
+            </form>
+            @include('category.list')
+        </div>
     </x-card>
 @endsection
-        

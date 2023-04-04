@@ -84,6 +84,7 @@ class TestimonialController extends Controller
         $testimonial->position = $request->position;
         $testimonial->description = $request->description;
         $testimonial->photo = $request->photo;
+        $testimonial->status = $request->has('status');
         $testimonial->update();
 
         return redirect()->route('testimonial.index')->with('status', 'Testimonial Update Successfully');

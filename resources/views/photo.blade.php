@@ -95,7 +95,7 @@
                                     <div class="">
                                         <label class="form-label">Large Image</label>
                                         <div class="input-group">
-                                            <input type="text" class="w-full" value="{{ $photo->lg }}" readonly>
+                                            <input type="text" class="w-full" id="previewUrlLg" value="{{ $photo->lg }}" readonly>
                                             <button class="btn btn-primary text-white" onclick="cp('previewUrlLg')">
                                                 <i class="fa-solid fa-clipboard"></i>
                                             </button>

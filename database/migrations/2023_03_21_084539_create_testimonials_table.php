@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('position');
             $table->longText('description');
             $table->string('photo');
-            $table->boolean('status')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
