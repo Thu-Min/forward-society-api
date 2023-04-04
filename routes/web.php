@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
 
 Route::view('/', 'auth.login');
 
@@ -11,6 +13,8 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::view('/table', 'table')->name('table');
     Route::view('/user', 'form')->name('form');
     Route::resource('/photo', PhotoController::class);
+    Route::resource('/blog', \App\Http\Controllers\BlogController::class);
+    Route::resource('/category', \App\Http\Controllers\CategoryController::class);
 });
 
 Route::middleware('auth')->group(function () {
