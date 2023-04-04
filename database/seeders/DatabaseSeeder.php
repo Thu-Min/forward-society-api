@@ -28,6 +28,14 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin123')
         ]);
 
-        // Testimonial::factory(100)->create();
+        
+        $this->call([
+            BlogSeeder::class,
+            CategorySeeder::class,
+        ]);
+
+
+        Testimonial::factory(100)->create();
+
     }
 }
