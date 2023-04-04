@@ -53,20 +53,20 @@
           <x-sidebar-menu-title>
             Blog Management
           </x-sidebar-menu-title>
-
+  
           <x-sidebar-link :url="route('category.index')">
             <i class="fa-regular fa-rectangle-list"></i>
             Category List
           </x-sidebar-link>
-
+          
           <x-sidebar-link :url="route('blog.index')">
             <i class="fa-solid fa-book-open"></i>
             Blog List
-          </x-sidebar-link>
-
+          </x-sidebar-link>  
+                              
           <x-sidebar-link :url="route('blog.create')">
             <i class="fa-regular fa-square-plus"></i>
-            Create Blog
+            Add Blog
           </x-sidebar-link>
 
     </ul>

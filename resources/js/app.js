@@ -29,5 +29,5 @@ window.cp = function (selectorId){
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(current.value);
 
-    showToast("Copied the URL. Paste anywhere to use it back","info")
+    showToast("Copied the URL. Past anywhere to use it back","info")
 }

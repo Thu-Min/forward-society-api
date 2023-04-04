@@ -30,9 +30,10 @@ Testimonial
                     class="textarea textarea-bordered w-full col-span-3 textarea-lg @error('description') is-invalid @enderror"
                     cols="30"
                     rows="15"
-                    placeholder="Enter Description"
                     style="resize: none;"
-                ></textarea>
+                >
+
+                </textarea>
 
                 @error('description')
                     <div class="text-red-500">{{ $message }}</div>
@@ -94,10 +95,7 @@ Testimonial
                     </div>
 
                     <div class="ml-56">
-                        <button class="btn btn-primary text-white">
-                            <i class="fa-solid fa-circle-plus mr-3"></i>
-                            Upload
-                        </button>
+                        <button class="btn btn-primary text-white">Upload</button>
                     </div>
                 </div>
 
