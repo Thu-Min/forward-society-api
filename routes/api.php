@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiCategoryController;
 use App\Http\Controllers\ApiBlogController;
 use App\Http\Controllers\ApiTestimonialController;
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Testimonial;
+use App\Http\Resources\TestimonialResource;
 
 
 

@@ -1,7 +1,7 @@
 @extends('templates.master')
 
 @section('title')
-    Add Blog
+    Create Blog
 @endsection
 
 @section('content')
@@ -10,11 +10,11 @@
         <ul>
             <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('blog.index') }}">Blog</a></li>
-            <li>Add Blog</li>
+            <li>Create Blog</li>
         </ul>
     </div>
     <x-card>
-        <x-card-header title="Add Blog">
+        <x-card-header title="Create New Blog">
 
         </x-card-header>
 
@@ -26,15 +26,10 @@
                     <div class="form-control w-full">
                         <label class="label font-bold text-xl" for="Description">Description</label>
                         <textarea name="description" class="textarea textarea-bordered textarea-lg w-full max-w-xl"
-                            placeholder="Enter blog description here" cols="30" rows="12"></textarea>
+                            placeholder="Enter Blog Description here" cols="30" rows="15"></textarea>
                     </div>
                     @error('description')
-                        <div class="alert alert-warning shadow-lg">
-                            <div>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <span>{{ $message }}</span>
-                            </div>
-                        </div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
             </div>
             <div>
@@ -43,12 +38,7 @@
                     <input type="text" placeholder="Enter Blog Title here"
                         class="input input-bordered input-md w-full max" name="title">
                     @error('title')
-                        <div class="alert alert-warning shadow-lg">
-                            <div>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <span>{{ $message }}</span>
-                            </div>
-                        </div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-control w-full">
@@ -62,12 +52,7 @@
                         @endforelse
                     </select>
                     @error('category')
-                        <div class="alert alert-warning shadow-lg">
-                            <div>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <span>{{ $message }}</span>
-                            </div>
-                        </div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-control w-full">
@@ -75,12 +60,7 @@
                     <input type="text" placeholder="Enter Authour Name here"
                         class="input input-bordered input-md w-full max" name="author_name">
                     @error('author_name')
-                        <div class="alert alert-warning shadow-lg">
-                            <div>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <span>{{ $message }}</span>
-                            </div>
-                        </div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-control w-full">
@@ -88,12 +68,7 @@
                     <input type="text" placeholder="Enter Designer Name here"
                         class="input input-bordered input-md w-full max" name="designer_name">
                     @error('designer_name')
-                        <div class="alert alert-warning shadow-lg">
-                            <div>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <span>{{ $message }}</span>
-                            </div>
-                        </div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-control w-full">
@@ -101,16 +76,11 @@
                     <input type="text" placeholder="Enter Image Url"
                         class="file-input file-input-primary file-input-bordered w-full max" name="image">
                     @error('image')
-                        <div class="alert alert-warning shadow-lg">
-                            <div>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <span>{{ $message }}</span>
-                            </div>
-                        </div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary btn-wide mt-2">
-                    <i class="fa-solid fa-circle-plus mr-3"></i> Add Blog
+                <button type="submit" class="btn btn-primary mt-2">
+                    <i class="fa-solid fa-circle-plus mr-3"></i> Create
                 </button>
             </div>
             </form>
