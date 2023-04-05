@@ -20,22 +20,27 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/blog', function() {
-    return BlogResource::collection(Blog::all());
+Route::prefix('/v1')->group(function(){
+    
+        Route::get('/blog', function() {
+            return BlogResource::collection(Blog::all());
+        });
+
+        Route::get('/blog/{id}', function (string $id) {
+            return new BlogResource(Blog::findOrFail($id));
+        });
+
+        Route::get('/category', function() {
+            return CategoryResource::collection(Category::all());
+        });
+
+        Route::get('/category/{id}', function (string $id) {
+            return new CategoryResource(Category::findOrFail($id));
+        });
+
+        Route::resource('/testimonial', ApiTestimonialController::class);
+
 });
 
-Route::get('/blog/{id}', function (string $id) {
-    return new BlogResource(Blog::findOrFail($id));
-});
 
-Route::get('/category', function() {
-    return CategoryResource::collection(Category::all());
-});
-
-Route::get('/category/{id}', function (string $id) {
-    return new CategoryResource(Category::findOrFail($id));
-});
-
-
-Route::resource('/testimonial', ApiTestimonialController::class);
 
