@@ -14,7 +14,7 @@ class ApiCategoryController extends Controller
      */
     public function index()
     {
-        return new CategoryResource(Category::paginate(10));
+        return CategoryResource::collection(Category::paginate(10));
     }
     /**
      * Display the specified resource.

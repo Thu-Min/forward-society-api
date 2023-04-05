@@ -13,7 +13,7 @@ class ApiBlogController extends Controller
      */
     public function index()
     {
-       return new BlogResource(Blog::paginate(10));
+       return BlogResource::collection(Blog::paginate(10));
     }
     /**
      * Display the specified resource.

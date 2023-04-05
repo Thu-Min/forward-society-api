@@ -22,25 +22,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('/v1')->group(function(){
 
-        Route::get('/blog', function() {
-            return BlogResource::collection(Blog::all());
-        });
+        Route::get('/blog', [ApiBlogController::class, 'index']);
 
-        Route::get('/blog/{id}', function (string $id) {
-            return new BlogResource(Blog::findOrFail($id));
-        });
+        Route::get('/blog/{id}', [ApiBlogController::class, 'show']);
 
-        Route::get('/category', function() {
-            return CategoryResource::collection(Category::all());
-        });
+        Route::get('/category', [ApiCategoryController::class, 'index']);
 
-        Route::get('/category/{id}', function (string $id) {
-            return new CategoryResource(Category::findOrFail($id));
-        });
+        Route::get('/category/{id}', [ApiCategoryController::class, 'show']);
 
-        Route::get('/testimonial', function() {
-            return TestimonialResource::collection(Testimonial::all());
-        });
+        Route::get('/testimonial', [ApiTestimonialController::class, 'index']);
 
 });
 

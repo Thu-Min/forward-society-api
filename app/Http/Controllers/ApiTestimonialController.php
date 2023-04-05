@@ -13,7 +13,7 @@ class ApiTestimonialController extends Controller
      */
     public function index()
     {
-        return new TestimonialResource(Testimonial::where('status', 1)->get());
+        return TestimonialResource::collection(Testimonial::where('status', true)->get());
     }
 
     /**
