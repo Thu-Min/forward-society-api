@@ -1,6 +1,6 @@
 <section
       id="sideBar"
-      class="w-[345px] h-screen bg-[#00122C] flex flex-col gap-5 fixed left-0 top-0"
+      class="w-[345px] h-screen bg-[#00122C] flex flex-col gap-5 fixed overflow-y-scroll left-0 top-0"
     >
       <figure class="mt-5">
         <img src="{{ asset('img/watermark.png') }}" alt="logo" class="h-[80px] ml-5"  />
