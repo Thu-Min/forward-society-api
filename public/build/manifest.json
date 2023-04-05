@@ -1,0 +1,24 @@
+{
+  "public/img/wave-1.svg": {
+    "file": "assets/wave-1-bc93249c.svg",
+    "src": "public/img/wave-1.svg"
+  },
+  "public/img/wave-2.svg": {
+    "file": "assets/wave-2-b1c26ebb.svg",
+    "src": "public/img/wave-2.svg"
+  },
+  "public/img/wave.svg": {
+    "file": "assets/wave-c9c96cee.svg",
+    "src": "public/img/wave.svg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-a89a8a52.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-4d8cda3e.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
