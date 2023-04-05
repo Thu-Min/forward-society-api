@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('/v1')->group(function(){
-    
+
         Route::get('/blog', function() {
             return BlogResource::collection(Blog::all());
         });
@@ -38,7 +38,9 @@ Route::prefix('/v1')->group(function(){
             return new CategoryResource(Category::findOrFail($id));
         });
 
-        Route::resource('/testimonial', ApiTestimonialController::class);
+        Route::get('/testimonial', function() {
+            return TestimonialResource::collection(Testimonial::all());
+        });
 
 });
 

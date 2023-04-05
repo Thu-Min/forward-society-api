@@ -13,9 +13,7 @@ class ApiTestimonialController extends Controller
      */
     public function index()
     {
-        $testimonial = Testimonial::select('id','name','position', 'description', 'photo', 'created_at','updated_at')->where('status', 1)->get();
-
-        return response()->json($testimonial);
+        return new TestimonialResource(Testimonial::get());
     }
 
     /**
