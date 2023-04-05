@@ -12,4 +12,11 @@ class Blog extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function scopeSearch($q){
+        $keyword = request('keyword');
+        $q->orWhere("title","like","%$keyword%")
+            ->orWhere("description","like","%$keyword%");
+        return $q;
+    }
 }

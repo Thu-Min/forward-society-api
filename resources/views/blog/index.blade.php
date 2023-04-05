@@ -36,7 +36,7 @@
                             <tr>
                                 <td class="font-bold"> {{ $blog->id }} </td>
                                 <td>
-                                    <p> {{ $blog->slug }} </p>
+                                    <p> {{ $blog->title }} </p>
                                     <span class="badge badge-warning">
                                         <i class="fa-regular fa-rectangle-list mr-2"></i>{{ $blog->category->title }}
                                     </span>

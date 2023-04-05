@@ -13,7 +13,10 @@ class ApiBlogController extends Controller
      */
     public function index()
     {
-       return BlogResource::collection(Blog::paginate(10));
+        $blogs = Blog::when(request('keyword'),fn($q)=>$q->search())
+        ->latest("id")
+        ->paginate(10)->withQueryString();
+        return BlogResource::collection($blogs);
     }
     /**
      * Display the specified resource.
