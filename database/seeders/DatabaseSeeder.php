@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use App\Models\User;
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
@@ -32,6 +33,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BlogSeeder::class,
             CategorySeeder::class,
+            EventSeeder::class,
         ]);
 
 

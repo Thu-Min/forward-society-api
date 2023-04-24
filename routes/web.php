@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\EventCategoryController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProfileController;
@@ -21,6 +23,9 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
 
 
     Route::resource('/testimonial', TestimonialController::class);
+
+    Route::resource('/events', EventController::class);
+    Route::resource('/event_categories', EventCategoryController::class);
 
 });
 

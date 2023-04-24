@@ -50,24 +50,43 @@
             Create Testimonial
         </x-sidebar-link>
 
-          <x-sidebar-menu-title>
-            Blog Management
-          </x-sidebar-menu-title>
+        <x-sidebar-menu-title>
+          Blog Management
+        </x-sidebar-menu-title>
 
-          <x-sidebar-link :url="route('category.index')">
-            <i class="fa-regular fa-rectangle-list"></i>
-            Category List
-          </x-sidebar-link>
+        <x-sidebar-link :url="route('category.index')">
+          <i class="fa-regular fa-rectangle-list"></i>
+          Category List
+        </x-sidebar-link>
 
-          <x-sidebar-link :url="route('blog.index')">
-            <i class="fa-solid fa-book-open"></i>
-            Blog List
-          </x-sidebar-link>
+        <x-sidebar-link :url="route('blog.index')">
+          <i class="fa-solid fa-book-open"></i>
+          Blog List
+        </x-sidebar-link>
 
-          <x-sidebar-link :url="route('blog.create')">
-            <i class="fa-regular fa-square-plus"></i>
-            Create Blog
-          </x-sidebar-link>
+        <x-sidebar-link :url="route('blog.create')">
+          <i class="fa-regular fa-square-plus"></i>
+          Create Blog
+        </x-sidebar-link>
+
+        <x-sidebar-menu-title>
+          Event Management
+        </x-sidebar-menu-title>
+
+        <x-sidebar-link :url="route('event_categories.index')">
+          <i class="fa-regular fa-rectangle-list"></i>
+          Event Category List
+        </x-sidebar-link>
+
+        <x-sidebar-link :url="route('events.index')">
+          <i class="fa-solid fa-book-open"></i>
+          Event List
+        </x-sidebar-link>
+
+        <x-sidebar-link :url="route('events.create')">
+          <i class="fa-regular fa-square-plus"></i>
+          Create Event
+        </x-sidebar-link>
 
     </ul>
 
