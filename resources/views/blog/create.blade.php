@@ -25,20 +25,20 @@
                     <label class="label">
                         <span class="label-text font-bold text-xl">Description</span>
                     </label>
-                    <textarea name="description" class="textarea textarea-bordered textarea-lg w-full max-w-xl"
+                    <textarea name="description" class="textarea textarea-bordered w-full col-span-3 textarea-lg"
                         placeholder="Enter Blog Description here" cols="30" rows="15"></textarea>
                     @error('description')
                         <div class="text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <div class=class="col-span-1">
+                <div class="col-span-1">
                     <div class="form-control col-span-1 mb-2">
                         <label class="label">
                             <span class="label-text font-bold text-xl">Title</span>
                         </label>
                         <input type="text" placeholder="Enter Blog Title here"
-                            class="input input-bordered input-md w-full max" name="title">
+                            class="input input-bordered input-md w-96 max" name="title">
                         @error('title')
                             <div class="text-red-500">{{ $message }}</div>
                         @enderror
@@ -47,7 +47,7 @@
                         <label class="label">
                             <span class="label-text font-bold text-xl">Choose Category</span>
                         </label>
-                        <select class="select select-bordered select-md w-full max" name="category">
+                        <select class="select select-bordered select-md w-96 max" name="category">
                             @forelse ($categories as $category)
                                 <option value="{{ $category->id }}">
                                     {{ $category->title }}
@@ -64,7 +64,7 @@
                             <span class="label-text font-bold text-xl">Written by</span>
                         </label>
                         <input type="text" placeholder="Enter Authour Name here"
-                            class="input input-bordered input-md w-full max" name="author_name">
+                            class="input input-bordered input-md w-96 max" name="author_name">
                         @error('author_name')
                             <div class="text-red-500">{{ $message }}</div>
                         @enderror
@@ -74,7 +74,7 @@
                             <span class="label-text font-bold text-xl">Design by</span>
                         </label>
                         <input type="text" placeholder="Enter Designer Name here"
-                            class="input input-bordered input-md w-full max" name="designer_name">
+                            class="input input-bordered input-md w-96 max" name="designer_name">
                         @error('designer_name')
                             <div class="text-red-500">{{ $message }}</div>
                         @enderror
@@ -84,7 +84,7 @@
                             <span class="label-text font-bold text-xl">Image</span>
                         </label>
                         <input type="text" placeholder="Enter Image Url"
-                            class="file-input file-input-primary file-input-bordered w-full max" name="image">
+                            class="file-input file-input-primary file-input-bordered w-96 max" name="image">
                         @error('image')
                             <div class="text-red-500">{{ $message }}</div>
                         @enderror

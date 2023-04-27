@@ -25,18 +25,18 @@ Create Event
                 <label class="label">
                     <span class="label-text font-bold text-xl">Description</span>
                 </label>
-                <textarea name="description" class="textarea textarea-bordered textarea-lg w-full max-w-xl" placeholder="Enter Event Description here" cols="30" rows="15">{{old('description')}}</textarea>
+                <textarea name="description" class="textarea textarea-bordered w-full col-span-3 textarea-lg" placeholder="Enter Event Description here" cols="30" rows="15">{{old('description')}}</textarea>
                 @error('description')
                 <div class="text-red-500">{{ $message }}</div>
                 @enderror
             </div>
 
-            <div class=class="col-span-1">
+            <div class="col-span-1">
                 <div class="form-control col-span-1 mb-2">
                     <label class="label" for="title">
                         <span class="label-text font-bold text-xl">Title</span>
                     </label>
-                    <input type="text" placeholder="Enter Blog Title here" class="input input-bordered input-md w-full max" name="title" id="title" value="{{old('title')}}">
+                    <input type="text" placeholder="Enter Blog Title here" class="input input-bordered input-md w-96 max" name="title" id="title" value="{{old('title')}}">
                     @error('title')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
@@ -45,7 +45,7 @@ Create Event
                     <label class="label" for="event_category">
                         <span class="label-text font-bold text-xl">Choose Category</span>
                     </label>
-                    <select name="event_category" id="event_category" class="select select-bordered select-md w-full max">
+                    <select name="event_category" id="event_category" class="select select-bordered select-md w-96 max">
                         @forelse ($event_categories as $event_category)
                         <option value="{{ $event_category->id }}"
                             {{old('event_category') == $event_category->id ? 'selected' : ''}}>
@@ -62,7 +62,7 @@ Create Event
                     <label class="label" for="instructor">
                         <span class="label-text font-bold text-xl">Instructor</span>
                     </label>
-                    <input type="text" value="{{old('instructor')}}" placeholder="Enter Instrutor Name here" class="input input-bordered input-md w-full max" name="instructor" id="instructor">
+                    <input type="text" value="{{old('instructor')}}" placeholder="Enter Instrutor Name here" class="input input-bordered input-md w-96 max" name="instructor" id="instructor">
                     @error('instructor')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
@@ -94,7 +94,7 @@ Create Event
                     <label class="label" for="thumbnail">
                         <span class="label-text font-bold text-xl">Image</span>
                     </label>
-                    <input type="text" name="thumbnail" id="thumbnail" value="{{old('thumbnail')}}" placeholder="Enter Image Url" class="file-input file-input-primary file-input-bordered w-full max">
+                    <input type="text" name="thumbnail" id="thumbnail" value="{{old('thumbnail')}}" placeholder="Enter Image Url" class="file-input file-input-primary file-input-bordered w-96 max">
                     @error('thumbnail')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
