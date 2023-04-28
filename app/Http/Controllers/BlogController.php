@@ -15,7 +15,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::when(request('keyword'),fn($q)=>$q->search())
+        $blogs = Blog::when(request('search'),fn($q)=>$q->search())
         ->latest("id")
         ->paginate(5)->withQueryString();
         return view('blog.index', compact('blogs'));

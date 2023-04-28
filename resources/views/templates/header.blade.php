@@ -1,9 +1,17 @@
 <!-- Navbar -->
 <div class="navbar bg-white shadow-sm px-8 py-4 sticky top-0 z-20">
     <div class="form-control flex-1">
-        <form action="{{ route('blog.index') }}" nmethod="get">
+        @if(parse_url(url()->current())['path'] == '/dashboard/blog')
+        <form action="{{ route('blog.index') }}" method="get">
+        @elseif(parse_url(url()->current())['path'] == '/dashboard/category')
+        <form action="{{ route('category.index') }}" method="get">
+        @elseif(parse_url(url()->current())['path'] == '/dashboard/events')
+        <form action="{{ route('events.index') }}" method="get">
+        @elseif(parse_url(url()->current())['path'] == '/dashboard/event_categories')
+        <form action="{{ route('event_categories.index') }}" method="get">
+        @endif
             <div class="input-group">
-                <input type="text" required name="keyword" placeholder="Search…"
+                <input type="text" required name="search" value="{{request('search')}}" placeholder="Search..."
                     class="input input-bordered w-[400px]" />
                 <button class="btn btn-square bg-primary border-primary">
                     <i class="fa fa-search text-lg"></i>

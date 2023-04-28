@@ -14,9 +14,9 @@ class Blog extends Model
     }
 
     public function scopeSearch($q){
-        $keyword = request('keyword');
-        $q->orWhere("title","like","%$keyword%")
-            ->orWhere("description","like","%$keyword%");
+        $search = request('search');
+        $q->orWhere("title","like","%$search%")
+            ->orWhere("description","like","%$search%");
         return $q;
     }
 }
