@@ -13,10 +13,9 @@ class EventCategoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   
-        $event_categories = EventCategory::search()->latest('id')->paginate(10)->withQueryString();
+    {
         return view('event_categories.index', [
-            'event_categories' => $event_categories
+            'event_categories' => EventCategory::latest('id')->paginate(10)
         ]);
     }
 

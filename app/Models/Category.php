@@ -12,11 +12,4 @@ class Category extends Model
     public function blog(){
         return $this->hasMany(Blog::class);
     }
-
-    public function scopeSearch($query)
-    {   
-        $query->when(request('search'), function($query,$search){
-            $query->where('title','like',"%$search%");
-        });
-    }
 }
