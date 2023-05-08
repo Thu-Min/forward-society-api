@@ -16,8 +16,7 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {   
-        $events = Event::search()
-                ->latest('id')
+        $events = Event::latest('id')
                 ->paginate(5)
                 ->withQueryString();
         return view('events.index', compact('events'));
