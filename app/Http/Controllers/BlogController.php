@@ -16,8 +16,8 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::when(request('keyword'),fn($q)=>$q->search())
-        ->latest("id")
-        ->paginate(5)->withQueryString();
+            ->latest("id")
+            ->paginate(5)->withQueryString();
         return view('blog.index', compact('blogs'));
 
     }
@@ -49,6 +49,7 @@ class BlogController extends Controller
         $blog->category_id = $request->category;
         $blog->image = $request->image;
         $blog->save();
+
         return redirect()->route('blog.index')->with('status','Blog created successfully');
 
     }

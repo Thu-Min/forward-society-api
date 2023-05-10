@@ -1,10 +1,10 @@
 <section
       id="sideBar"
-      class="w-[345px] h-screen bg-[#00122C] flex flex-col gap-5 fixed overflow-y-scroll left-0 top-0"
-    >
-      <figure class="mt-5">
+      class="w-[345px] h-screen bg-[#00122C] flex flex-col gap-5 fixed left-0 top-0" style="overflow-y: scroll;">
+
+    <figure class="mt-5">
         <img src="{{ asset('img/watermark.png') }}" alt="logo" class="h-[80px] ml-5"  />
-      </figure>
+    </figure>
 
     <ul class="menu w-full p-2 text-white">
 
@@ -41,12 +41,12 @@
         </x-sidebar-menu-title>
 
         <x-sidebar-link :url="route('testimonial.index')">
-            <i class="fa-regular fa-fw fa-comment-dots"></i>
+            <i class="fa-regular fa-rectangle-list"></i>
             Testimonial List
         </x-sidebar-link>
 
         <x-sidebar-link :url="route('testimonial.create')">
-            <i class="fa-solid fa-fw fa-file"></i>
+            <i class="fa-regular fa-square-plus"></i>
             Create Testimonial
         </x-sidebar-link>
 
@@ -86,6 +86,15 @@
         <x-sidebar-link :url="route('events.create')">
           <i class="fa-regular fa-square-plus"></i>
           Create Event
+        </x-sidebar-link>
+
+        <x-sidebar-menu-title>
+            Contact
+        </x-sidebar-menu-title>
+
+        <x-sidebar-link :url="route('contact.index')">
+            <i class="fa-regular fa-rectangle-list"></i>
+            Contact List
         </x-sidebar-link>
 
     </ul>

@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\EventCategoryController;
-use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\EventCategoryController;
 
 
 Route::view('/', 'auth.login');
@@ -21,11 +22,12 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::resource('/blog', \App\Http\Controllers\BlogController::class);
     Route::resource('/category', \App\Http\Controllers\CategoryController::class);
 
-
     Route::resource('/testimonial', TestimonialController::class);
 
     Route::resource('/events', EventController::class);
     Route::resource('/event_categories', EventCategoryController::class);
+
+    Route::resource('/contact', ContactController::class);
 
 });
 

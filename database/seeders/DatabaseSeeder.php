@@ -5,8 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\User;
+use App\Models\Contact;
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
+use Database\Seeders\ContactSeeder;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -34,10 +36,12 @@ class DatabaseSeeder extends Seeder
             BlogSeeder::class,
             CategorySeeder::class,
             EventSeeder::class,
+            ContactSeeder::class,
         ]);
 
 
         Testimonial::factory(100)->create();
 
+        Contact::factory(30)->create();
     }
 }

@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Resources\BlogResource;
-use App\Http\Resources\CategoryResource;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApiCategoryController;
-use App\Http\Controllers\ApiBlogController;
-use App\Http\Controllers\ApiEventController;
-use App\Http\Controllers\ApiTestimonialController;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Testimonial;
+use Illuminate\Http\Request;
+use App\Http\Resources\BlogResource;
+use Illuminate\Support\Facades\Route;
+use App\Http\Resources\CategoryResource;
+use App\Http\Controllers\ApiBlogController;
 use App\Http\Resources\TestimonialResource;
+use App\Http\Controllers\ApiEventController;
+use App\Http\Controllers\ApiContactController;
+use App\Http\Controllers\ApiCategoryController;
+use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Controllers\ApiTestimonialController;
 
 
 
@@ -36,6 +37,8 @@ Route::prefix('/v1')->group(function(){
         Route::get('/events', [ApiEventController::class,'index']);
 
         Route::get('/events/{event}', [ApiEventController::class, 'show']);
+
+        Route::post('/contact', [ApiContactController::class, 'store']);
 
 });
 

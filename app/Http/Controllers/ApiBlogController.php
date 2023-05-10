@@ -14,8 +14,9 @@ class ApiBlogController extends Controller
     public function index()
     {
         $blogs = Blog::when(request('keyword'),fn($q)=>$q->search())
-        ->latest("id")
-        ->paginate(10)->withQueryString();
+            ->latest("id")
+            ->paginate(10)->withQueryString();
+
         return BlogResource::collection($blogs);
     }
     /**
