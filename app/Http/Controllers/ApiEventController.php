@@ -19,6 +19,6 @@ class ApiEventController extends Controller
 
     public function show(Event $event)
     {
-        return $event;
+        return new EventResource($event);
     }
 }
