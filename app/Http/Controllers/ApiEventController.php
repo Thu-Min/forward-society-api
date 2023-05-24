@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\EventResource;
+use App\Http\Resources\EventShowResource;
 use Illuminate\Http\Request;
 use App\Models\Event;
 
@@ -19,6 +20,6 @@ class ApiEventController extends Controller
 
     public function show(Event $event)
     {
-        return new EventResource($event);
+        return new EventShowResource($event);
     }
 }
