@@ -31,9 +31,9 @@ class Event extends Model
 
     public function scopeSearch($query)
     {   
-        $query->when(request('search'), function($query,$search){
-            $query->where('title','like',"%$search%")
-                ->orWhere("description","like","%$search%");
+        $query->when(request('keyword'), function($query,$keyword){
+            $query->where('title','like',"%$keyword%")
+                ->orWhere("description","like","%$keyword%");
         });
     }
 
