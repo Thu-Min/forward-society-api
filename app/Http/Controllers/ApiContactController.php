@@ -32,13 +32,13 @@ class ApiContactController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
-            'phone' => 'required',
             'description' => 'required',
         ]);
 
         if($validator->fails()){
             return response()->json([
-                'status' => 'required',
+                'status' => '400',
+                'message' => 'Invalid Body'
             ]);
         }
 
