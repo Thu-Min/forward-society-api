@@ -13,7 +13,7 @@ class ApiEventController extends Controller
     {
         $events = Event::search()
             ->latest('id')
-            ->paginate(10)
+            ->paginate(5)
             ->withQueryString();
         return EventResource::collection($events);
     }
