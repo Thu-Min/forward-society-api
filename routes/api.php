@@ -36,6 +36,12 @@ Route::prefix('/v1')->group(function(){
 
         Route::get('/events', [ApiEventController::class,'index']);
 
+        Route::get('/events/finished', [ApiEventController::class,'finished']);
+
+        Route::get('/events/upcoming', [ApiEventController::class,'upcoming']);
+
+        Route::get('/events/ongoing', [ApiEventController::class,'ongoing']);
+
         Route::get('/events/{event}', [ApiEventController::class, 'show']);
 
         Route::post('/contact', [ApiContactController::class, 'store']);
