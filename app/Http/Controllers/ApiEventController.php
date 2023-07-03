@@ -43,8 +43,8 @@ class ApiEventController extends Controller
         $eventOne = Event::where('id',$event->id)->get()->toArray();
         $otherEvent = Event::where('status' , $eventOne['0']['status'])->where('id', '!=', $eventOne['0']['id'])->take(3)->get();
         return response()->json([
-            "event" => $eventOne,
-            "otherEvent" => $otherEvent->toArray()
+            "event" => new EventResource($event),
+            "otherEvent" => EventResource::collection($otherEvent)
         ]);
     }
 }

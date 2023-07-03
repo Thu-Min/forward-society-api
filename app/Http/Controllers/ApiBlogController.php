@@ -24,7 +24,14 @@ class ApiBlogController extends Controller
      */
     public function show($id)
     {
-        return Blog::findOrFail($id);
+        $blog = Blog::where('id', $id)->get()->toArray();
+        $otherBlog = Blog::where ('category_id', $blog['0']['category_id'])->where('id', '!=', $blog['0']['id'])->take(3)->get();
+
+        return response()->json([
+            "blog" => new BlogResource($blog),
+            "otherBlog" => BlogResource::collection($otherBlog)
+        ]);
+
     }
 
 }
