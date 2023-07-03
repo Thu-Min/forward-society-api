@@ -6,6 +6,7 @@ use App\Http\Resources\EventResource;
 use App\Http\Resources\EventShowResource;
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Illuminate\Http\Client\ResponseSequence;
 
 class ApiEventController extends Controller
 {
@@ -35,8 +36,16 @@ class ApiEventController extends Controller
             ->paginate(6);
         return EventResource::collection($events);
     }
+
     public function show(Event $event)
     {
-        return new EventShowResource($event);
+
+        $eventOne = Event::where('id',$event->id)->get()->toArray();
+        $otherEvent = Event::where('status' , $eventOne['0']['status'])->where('id', '!=', $eventOne['0']['id'])->take(3)->get();
+        return response()->json([
+            "event" => $eventOne,
+            "otherEvent" => $otherEvent->toArray()
+        ]);
     }
 }
+
