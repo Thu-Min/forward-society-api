@@ -19,26 +19,20 @@ class ApiEventController extends Controller
     }
     public function finished(Request $request)
     {
-        $events = Event::search()
-            ->latest('id')
-            ->paginate(3)
-            ->withQueryString();
+        $events = Event::where('status', 'finished')
+            ->paginate(6);
         return EventResource::collection($events);
     }
     public function upcoming(Request $request)
     {
-        $events = Event::search()
-            ->latest('id')
-            ->paginate(3)
-            ->withQueryString();
+        $events = Event::where('status', 'upcoming')
+            ->paginate(6);
         return EventResource::collection($events);
     }
     public function ongoing(Request $request)
     {
-        $events = Event::search()
-            ->latest('id')
-            ->paginate(3)
-            ->withQueryString();
+        $events = Event::where('status', 'ongoing')
+            ->paginate(6);
         return EventResource::collection($events);
     }
     public function show(Event $event)
