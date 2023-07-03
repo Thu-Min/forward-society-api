@@ -19,6 +19,7 @@ class BlogDetailResource extends JsonResource
             'title' => $this->title,
             'slug' => $this->slug,
             'excerpt' => $this->excerpt,
+            'description' => $this->description,
             'author_name' => $this->author_name,
             'designer_name' => $this->designer_name,
             'category' => $this->category->title,

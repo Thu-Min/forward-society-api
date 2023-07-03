@@ -17,16 +17,6 @@
           Dashboard
         </x-sidebar-link>
 
-        <x-sidebar-link :url="route('table')">
-          <i class="fa-solid fa-fw fa-table-list"></i>
-          Table
-        </x-sidebar-link>
-
-        <x-sidebar-link :url="route('form')">
-          <i class="fa-solid fa-fw fa-file"></i>
-          Form
-        </x-sidebar-link>
-
         <x-sidebar-menu-title>
             Gallery
         </x-sidebar-menu-title>
