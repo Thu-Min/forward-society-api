@@ -27,6 +27,7 @@ class ApiEventController extends Controller
     public function upcoming(Request $request)
     {
         $events = Event::where('status', 'upcoming')
+            ->latest('id')
             ->paginate(6);
         return EventResource::collection($events);
     }
